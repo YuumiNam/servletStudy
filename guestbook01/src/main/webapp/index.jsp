@@ -6,6 +6,7 @@
 
 <%
 	List<GuestbookVo> list = new GuestbookDao().findAll();
+	int i = 1;
 %>
 
 <html>
@@ -25,7 +26,7 @@
 			<td colspan=4><textarea name= "contents" cols=60 rows=5> </textarea></td>
 		</tr>
 		<tr>
-			<td colspan=4 align=right><input type="submit" VALUE="제출"></td>
+			<td colspan=4 align=right><input type="submit" value="제출"></td>
 		</tr>
 	</table>
 	</form>
@@ -38,7 +39,7 @@
 	%>
 	<table width=510 border=1>
 		<tr>
-			<td><%=vo.getNo() %></td>
+			<td><%=i++ %></td>
 			<td><%=vo.getName() %></td>
 			<td><%=vo.getDate() %></td>
 			<td><a href="./deleteform.jsp?no=<%=vo.getNo() %>">삭제</a></td>
