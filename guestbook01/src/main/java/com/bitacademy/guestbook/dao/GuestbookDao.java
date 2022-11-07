@@ -132,7 +132,7 @@ public class GuestbookDao {
 	}
 	
 	//delete by password
-	public Boolean deleteByPassword(String password) {
+	public Boolean deleteByPassword(String no, String password) {
 		boolean result = false;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -151,12 +151,13 @@ public class GuestbookDao {
 			String sql = 
 					"delete" +  
 					" from guestbook" +
-				    " where password = ?"; // 쿼리
+				    " where no = ? and password = ?"; // 쿼리
 			
 			pstmt = conn.prepareStatement(sql); // row값
 	
 			//4. Binding
-			pstmt.setString(1, password);
+			pstmt.setString(1, no);
+			pstmt.setString(2, password);
 			
 			//5. SQL 실행
 			int count = pstmt.executeUpdate(); // 
