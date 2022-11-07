@@ -3,6 +3,8 @@
 <%
 	String email = request.getParameter("email");
 	String password = request.getParameter("password");
+	String birthYear = request.getParameter("birthYear");
+	String gender = request.getParameter("gender");
 %>
 <!DOCTYPE html>
 <html>
@@ -13,5 +15,7 @@
 <body>
 	<h4><%=email %></h4>
 	<h4><%=password %></h4>
+	<h4><%=birthYear %></h4>
+	<h4><%=gender %></h4>
 </body>
 </html>
