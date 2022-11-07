@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,6 +31,12 @@
 		자기소개 : <textarea name = "profile"> </textarea> <!-- textarea는 한칸 띄어줘야한다 -->
 		<br/><br/>
 		
+		취미 : <br/>
+		코딩<input type = "checkbox" name = "hobby" value = "coding">
+		게임<input type = "checkbox" name = "hobby" value = "game">
+		영화보기<input type = "checkbox" name = "hobby" value = "movie">
+		독서<input type = "checkbox" name = "hobby" value = "book">
+		<br/><br/>
 		
 		<input type = "submit" value = "회원가입">
 	</form>
