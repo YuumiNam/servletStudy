@@ -7,11 +7,11 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ㅇㅇ</title>
+<title>방명록</title>
 </head>
 <body>
 	<form method="post" action="delete.jsp">
-	<input type='hidden' name="no" value="2">
+	<input type='hidden' name="no" value="<%=no %>">
 	<table>
 		<tr>
 			<td>비밀번호</td>
