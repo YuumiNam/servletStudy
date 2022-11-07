@@ -49,7 +49,9 @@
 		문장입니다!<br/>
 	</p>
 	
-	<a href = "./hello.jsp?name=이선무">hello로 가기</a> <!-- GET방식으로 파라미터값 생성하기 (read의 개념)-->
+	<a href = "./hello.jsp?name=이선무">hello로 가기1</a> <!-- GET방식으로 파라미터값 생성하기 (read의 개념)-->
+	<br/>
+	<a href = "/helloweb/hello?name=이선무">hello로 가기2</a>
 	<br/>
 	<a href = "./form.jsp">폼으로 가기</a> <!-- POST방식은 GET방식처럼 URL에 못씀(create의 개념)-->
 </body>
