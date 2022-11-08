@@ -6,7 +6,7 @@
 
 <%
 	List<GuestbookVo> list = new GuestbookDao().findAll();
-	int count = list.size();
+	int count = 1;
 %>
 
 <html>
@@ -23,7 +23,7 @@
 			<td>비밀번호</td><td><input type="password" name="password"></td>
 		</tr>
 		<tr>
-			<td colspan=4><textarea name= "contents" cols=60 rows=5> </textarea></td>
+			<td colspan=4><textarea name= "contents" cols=60 rows=5></textarea></td>
 		</tr>
 		<tr>
 			<td colspan=4 align=right><input type="submit" value="제출"></td>
@@ -39,7 +39,7 @@
 	%>
 	<table width=510 border=1>
 		<tr>
-			<td>[<%=count-- %>]</td>
+			<td>[<%=count++ %>]</td>
 			<td><%=vo.getName() %></td>
 			<td><%=vo.getDate() %></td>
 			<td><a href="./deleteform.jsp?no=<%=vo.getNo() %>">삭제</a></td>

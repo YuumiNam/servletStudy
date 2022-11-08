@@ -1,12 +1,12 @@
 desc guestbook;
 
 -- guest insert
-insert into guestbook values(null, '둘리', '1234', '호이~', now());
+insert into guestbook values(null, '마이콜', '1234', 'hi', now());
 
 -- guest select
 select no, name, contents, date_format(reg_date, '%Y/%m/%d %H:%i:%s') as date
 	from guestbook
-order by date desc;
+order by date asc;
     
 select * from guestbook;
 

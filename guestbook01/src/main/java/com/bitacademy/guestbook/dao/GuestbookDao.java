@@ -35,7 +35,7 @@ public class GuestbookDao {
 			String sql = 
 					"select no, name, contents, date_format(reg_date, '%Y/%m/%d %H:%i:%s') as date" +
 					" from guestbook" + 
-					" order by date desc"; // 쿼리
+					" order by date asc"; // 쿼리
 			
 			rs = stmt.executeQuery(sql); // row값에 쿼리를 대입시킨것 (한줄만)
 			
