@@ -6,7 +6,7 @@
 
 <%
 	List<GuestbookVo> list = new GuestbookDao().findAll();
-	int i = 1;
+	int count = list.size();
 %>
 
 <html>
@@ -39,13 +39,13 @@
 	%>
 	<table width=510 border=1>
 		<tr>
-			<td><%=i++ %></td>
+			<td>[<%=count-- %>]</td>
 			<td><%=vo.getName() %></td>
 			<td><%=vo.getDate() %></td>
 			<td><a href="./deleteform.jsp?no=<%=vo.getNo() %>">삭제</a></td>
 		</tr>
 		<tr>
-			<td colspan=4><%=vo.getContents() %></td>
+			<td colspan=4><%=vo.getContents().replaceAll("\n", "<br>") %></td>
 		</tr>
 	</table>
 	<%

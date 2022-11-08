@@ -34,7 +34,8 @@ public class GuestbookDao {
 			//4. SQL 실행
 			String sql = 
 					"select no, name, contents, date_format(reg_date, '%Y/%m/%d %H:%i:%s') as date" +
-					" from guestbook"; // 쿼리
+					" from guestbook" + 
+					" order by date desc"; // 쿼리
 			
 			rs = stmt.executeQuery(sql); // row값에 쿼리를 대입시킨것 (한줄만)
 			
@@ -84,7 +85,7 @@ public class GuestbookDao {
 	public Boolean insert(GuestbookVo vo) {
 		boolean result = false;
 		Connection conn = null;
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		
 		try {
 			//1. JDBC Driver Class Loading
@@ -96,16 +97,22 @@ public class GuestbookDao {
 			conn = DriverManager.getConnection(url, "webdb", "webdb");
 			
 			
-			//3. statement 생성
-			stmt = conn.createStatement(); // row값
-	
 			
-			//4. SQL 실행
-			String sql = "insert into guestbook" + 
-						 " values(null, '" + vo.getName() + "', '" + vo.getPassword() + "', '" + vo.getContents() + "', now())"; // 쿼리
+			// 3. statement 준비
+			String sql = "insert into guestbook values(null, ?, ?, ?,now())"; // 쿼리
 			
 			
-			int count = stmt.executeUpdate(sql); // executeUpdate()는 insert등은 반영된 건수를 반환, create&drop은 -1을 반환
+			pstmt = conn.prepareStatement(sql); // row값
+			
+			
+			// 4. binding
+			pstmt.setString(1, vo.getName());
+			pstmt.setString(2, vo.getPassword());
+			pstmt.setString(3, vo.getContents());
+			
+			
+			// 5. 실행
+			int count = pstmt.executeUpdate(); // executeUpdate()는 insert등은 반영된 건수를 반환, create&drop은 -1을 반환
 			
 			//5. 결과처리
 			result = count == 1; // count == 1 << true
@@ -117,8 +124,8 @@ public class GuestbookDao {
 			System.out.println("Error:" + e);
 		} finally {
 			try {
-				if(stmt != null) {
-					stmt.close();
+				if(pstmt != null) {
+					pstmt.close();
 				}
 				if(conn != null) {
 					conn.close();

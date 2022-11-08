@@ -4,6 +4,7 @@
 
 <%
 	request.setCharacterEncoding("utf-8");
+
 	String no = request.getParameter("no");
 	String psw = request.getParameter("password");
 	
