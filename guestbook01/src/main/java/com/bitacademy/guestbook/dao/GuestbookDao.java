@@ -21,17 +21,14 @@ public class GuestbookDao {
 		ResultSet rs = null;
 		
 		try {
-			//1. JDBC Driver Class Loading
-			Class.forName("org.mariadb.jdbc.Driver");
 			
-			//2. 연결하기
-			String url = "jdbc:mysql://127.0.0.1:3306/webdb?charset=utf8";
-			conn = DriverManager.getConnection(url, "webdb", "webdb");
+			// 1, 2
+			conn = getConnection();
 			
-			//3. statement
+			// 3. statement
 			stmt = conn.createStatement(); // row값
 			
-			//4. SQL 실행
+			// 4. SQL 실행
 			String sql = 
 					"select no, name, contents, date_format(reg_date, '%Y/%m/%d %H:%i:%s') as date" +
 					" from guestbook" + 
@@ -39,7 +36,7 @@ public class GuestbookDao {
 			
 			rs = stmt.executeQuery(sql); // row값에 쿼리를 대입시킨것 (한줄만)
 			
-			//5. 결과처리
+			// 5. 결과처리
 			while(rs.next()) { // 한줄이 아닌 전체를 뽑음
 				Long no = rs.getLong(1);
 				String name = rs.getString(2);
@@ -55,8 +52,6 @@ public class GuestbookDao {
 				result.add(vo);
 			}
 			
-		} catch (ClassNotFoundException e) {
-			System.out.println("드라이버 로딩 실패:" + e);
 		} catch (SQLException e) {
 			System.out.println("Error:" + e);
 		} finally {
@@ -88,14 +83,8 @@ public class GuestbookDao {
 		PreparedStatement pstmt = null;
 		
 		try {
-			//1. JDBC Driver Class Loading
-			Class.forName("org.mariadb.jdbc.Driver");
-			
-			
-			//2. 연결하기
-			String url = "jdbc:mysql://127.0.0.1:3306/webdb?charset=utf8";
-			conn = DriverManager.getConnection(url, "webdb", "webdb");
-			
+			// 1, 2
+			conn = getConnection();
 			
 			
 			// 3. statement 준비
@@ -118,8 +107,6 @@ public class GuestbookDao {
 			result = count == 1; // count == 1 << true
 			
 			
-		} catch (ClassNotFoundException e) {
-			System.out.println("드라이버 로딩 실패:" + e);
 		} catch (SQLException e) {
 			System.out.println("Error:" + e);
 		} finally {
@@ -139,22 +126,17 @@ public class GuestbookDao {
 	}
 	
 	//delete by password
-	public Boolean deleteByPassword(String no, String password) {
+	public Boolean deleteByNoAndPassword(Long no, String password) {
 		boolean result = false;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
 		try {
-			//1. JDBC Driver Class Loading
-			Class.forName("org.mariadb.jdbc.Driver");
+			// 1, 2
+			conn = getConnection();
 			
 			
-			//2. 연결하기
-			String url = "jdbc:mysql://127.0.0.1:3306/webdb?charset=utf8";
-			conn = DriverManager.getConnection(url, "webdb", "webdb");
-			
-			
-			//3. statement 준비
+			// 3. statement 준비
 			String sql = 
 					"delete" +  
 					" from guestbook" +
@@ -162,19 +144,17 @@ public class GuestbookDao {
 			
 			pstmt = conn.prepareStatement(sql); // row값
 	
-			//4. Binding
-			pstmt.setString(1, no);
+			// 4. Binding
+			pstmt.setLong(1, no);
 			pstmt.setString(2, password);
 			
-			//5. SQL 실행
+			// 5. SQL 실행
 			int count = pstmt.executeUpdate(); // 
 			
-			//6. 결과처리
+			// 6. 결과처리
 			result = count == 1;
 			
 			
-		} catch (ClassNotFoundException e) {
-			System.out.println("드라이버 로딩 실패:" + e);
 		} catch (SQLException e) {
 			System.out.println("Error:" + e);
 		} finally {
@@ -192,5 +172,24 @@ public class GuestbookDao {
 	
 		return result;
 		
+	}
+	
+	
+	private Connection getConnection() throws SQLException {
+		Connection conn = null;
+		
+		try {
+			//1. JDBC Driver Class Loading
+			Class.forName("org.mariadb.jdbc.Driver");
+			
+			
+			//2. 연결하기
+			String url = "jdbc:mysql://127.0.0.1:3306/webdb?charset=utf8";
+			conn = DriverManager.getConnection(url, "webdb", "webdb");
+		} catch (ClassNotFoundException e) {
+			System.out.println("드라이버 로딩 실패:" + e);
+		}
+			
+		return conn;
 	}
 }

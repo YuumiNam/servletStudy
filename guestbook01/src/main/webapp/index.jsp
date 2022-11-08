@@ -42,7 +42,7 @@
 			<td>[<%=count++ %>]</td>
 			<td><%=vo.getName() %></td>
 			<td><%=vo.getDate() %></td>
-			<td><a href="./deleteform.jsp?no=<%=vo.getNo() %>">삭제</a></td>
+			<td><a href="./deleteform.jsp?no=<%=vo.getNo() %>">삭제</a></td> <!-- no는 여기서 get방식으로 지정했음 -->
 		</tr>
 		<tr>
 			<td colspan=4><%=vo.getContents().replaceAll("\n", "<br>") %></td>
