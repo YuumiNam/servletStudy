@@ -112,17 +112,19 @@ Servlet은 원래 쓰던 자바처럼 DB와의 통신, 논리나 로직을 읽�
 요청과 응답을 제어하는부분(Servlet)
 
 2) Model
-어떤요청 어떤응답을 받을지 방법을 설정한느부분(DAO)
+어떤요청 어떤응답을 받을지 방법을 설정하는부분(DAO)
 
 3) View
 화면에 어떻게 보일지(JSP)
 
 
 두 가지 방법!
-(1) Model01 => Model + 1(JSP, V+C)
-(2) Model02 => (M)odel + 2(JSP(V), Servlet(C)  MVC과정
+(1) Model01 => Model + 1(JSP --> C+V)
+(2) Model02 => (M)odel + 2(Servlet(C) --> JSP(V)  MVC과정
 
 (Spring을 배운 이후)
 Model03(Spring MVC, XML Configuration)
 Model04(Spring MVC, Java Class Configuration)
 Model05(Spring Boot, Java Class Configuration)
+
+
