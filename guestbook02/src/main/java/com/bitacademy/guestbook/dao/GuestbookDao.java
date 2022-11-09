@@ -79,6 +79,7 @@ public class GuestbookDao {
 	// insert()
 	public Boolean insert(GuestbookVo vo) {
 		boolean result = false;
+		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
@@ -128,6 +129,7 @@ public class GuestbookDao {
 	//delete by password
 	public Boolean deleteByNoAndPassword(Long no, String password) {
 		boolean result = false;
+		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
