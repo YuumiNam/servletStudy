@@ -44,7 +44,8 @@ public class GuestbookController extends HttpServlet {
 			 new GuestbookDao().insert(vo);
 			 
 			 response.sendRedirect("./gb");
-		} else if("deleteform".equals(action)) { 
+		} else if("deleteform".equals(action)) {
+			//jsp파일을 직접 꺼내쓰지 않고 숨겨놓음(WEB-INF에). 컨트롤러에서 꺼내오는 메소드를 만듬
 			RequestDispatcher rd = request.getRequestDispatcher("./WEB-INF/views/deleteform.jsp");
 			rd.forward(request, response);
 		} else if("delete".equals(action)) {
