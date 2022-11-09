@@ -1,0 +1,48 @@
+1. Model01
+'Model(dao) + 1(JSP --> C+V)'
+
+JSP가 View 뿐만 아니라 Controller까지 하게되어
+HTML과 JAVA의 역할을 둘다 해버려서 조금 조잡해짐
+
+ex) View역할을 하는 jsp파일(emaillist form)과
+Controller역할을 하는 jsp파일(emaillist add,delete)를 생성(controller역할을 하는 jsp파일은 html의 형식이 필요없음)
+
+
+
+
+2. Model02 (표준MVC과정)
+(M)odel(dao) + 2(Servlet(C) --> JSP(V))  MVC과정
+
+기존 Modael01에서
+JSP의 역할을 View로 빼버리고
+Controller의 역학을 Servlet이 맡아서 한다.
+
+ex)
+"목록을보여줘" /emaillist02/el?a=list (request) ->
+Emaillist Controller ->
+servlet -> (dao의 메소드를 불러옴) -> controller -> (request) ->
+index.jsp (View)
+
+
+
+
+
+3. mysite 만들기
+
+agile User Story
+
+(1) 사용자는 회원가입을 한다.  /user?a=join
+(2) 사용자는 로그인을 한다.  /user?a=login
+(3) 사용자는 로그아웃을 한다.  /user?a=logout
+(6) 로그인한 사용자는 자신의 정보를 수정한다.  /user?a=update
+
+(4)사용자는 방명록에 글을 남긴다.  /guestbook?a=add
+(5)사용자는 방명록의 자신의 글을 삭제한다.  /guestbook?a=deleteform
+
+(7)로그인한 사용자는 게시판에 글을 작성한다.
+(8)로그인한 사용자는 자신의 글을 수정한다.
+(9)로그인한 사용자는 자신의 글을 삭제한다.
+(10)로그인한 사용자는 다른 사람의 글에 댓글을 남긴다.
+(11)사용자는 게시판글의 목록을 볼 수 있다.
+(12)사용자는 게시판글을 읽을 수 있다.
+
