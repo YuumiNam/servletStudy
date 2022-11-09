@@ -46,3 +46,22 @@ agile User Story
 (11)사용자는 게시판글의 목록을 볼 수 있다.
 (12)사용자는 게시판글을 읽을 수 있다.
 
+
+
+
+
+4. 웹 프로그래밍을 하기위한 기술
+백엔드
+	java				         JavaScript
+	web programming(Servlet/JSP, Spting MVC)       NodeJS(Express)
+	
+	RDBMS(SQL)
+	Database Programming(JDBC)
+	OS(Linux)
+
+프론트엔드
+	HTML
+	CSS
+	JavaScript
+	DOM Programming(DOM API, jQuery)  <->  React, VueJS, AngularJS
+	AJAX Programming
