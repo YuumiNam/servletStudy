@@ -33,6 +33,7 @@ public class EmaillistController extends HttpServlet {
 //			rd.forward(request, response);}
 			
 		if("form".equals(action)) {
+			//jsp파일을 직접 꺼내쓰지 않고 숨겨놓음(WEB-INF에). 컨트롤러에서 꺼내오는 메소드를 만듬
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/form.jsp");
 			rd.forward(request, response);
 		} else if("add".equals(action)) {
