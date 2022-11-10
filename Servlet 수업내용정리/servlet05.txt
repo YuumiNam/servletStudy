@@ -1,0 +1,36 @@
+1. getRequestDispatcher  sendRedirect
+
+sendRedirect()를 쓰면 클라이언트와 서버 간 통신이 끝난다는 것이다.
+RequestDispatcher객체의 forward는 일부러 response하지 않고 응답을 끌면서 다른 리소스로 전달한다.
+반면 response객체의 sendRedirect()는 응답을 끝내는 역할을 한다.
+
+
+
+2. getParameter()  getAttribute()
+
+getParameter()는 반환유형이 String이고 HTML페이지에서 필요한 정보를 얻는 데 사용한다.
+getAttribute()는 반환유형이 Object이고 이전에 다른 JSP 또는 Servlet페이지에 설정된 매개 변수를 가져오는데 사용한다.
+반환유형이 Object이기 때문에 항상 Casting(형변환)을 해줘야한다.
+(이전의 setAtrribute() 속성을 통한 설정이 없다면, null값을 가져온다.)
+
+
+
+
+3. setAttribute("key", value);
+해당 key에 value값의 정보를 넣는 역할을 한다.
+
+
+
+JSTL replace 개행하는법
+<td colspan=4><%=vo.getContents().replaceAll("\n", "<br>") %></td>
+|
+|
+<td colspan=4>${fn:replace(vo.contents, '\n', '<br/>') }  하지만 특수문자를 못쓴다...
+|
+|
+<c:set var = "newline" value="\n" />  이렇게 \n을 다른 객체로 선언해주면됨 하지만 쓸수가없음
+|
+|
+<%
+	pageContext.setAttribute("newline", "\n");    그래서 어쩔수없이 이렇게 선언해주고 써야함
+%>
