@@ -1,0 +1,62 @@
+0. JSTL, EL의 목적
+JSP에 두 가지 언어가 공존하는 것을 배제시키고싶음
+(자바코드를 없애고 다 태그로 바꾸고싶음)
+
+<%
+if
+for					->    JSTL로 바꾸자!!
+%>
+
+<%=getter, getAttribute, request %>		->    EL로 바꾸자!!
+
+
+
+
+
+1. EL로 바꾸는법
+<%= %>  ->  ${ }  여기 안에는 무조건 '이름'만 들어간다
+
+ex) 
+System.out.println(10);
+System.out.println(i);
+System.out.println(5+5);
+System.out.println(vo.getNumber());
+
+${10 }
+${i } => X  변수는 들어갈 수 없다(들어갈수 있다면 변수가 아닌 String타입의 리터럴)
+${vo.number }  자바의 getter를 대신해주는 스크립트언어. vo객체에있는 number를 찾음
+
+
+
+
+
+2. JSTL로 바꾸는법
+<%
+for   ->   
+%>        
+ 
+
+
+
+
+3. 어플리케이션의 구조와 객체의 생존범위
+Tomcat안에는 Context가 있다.
+Context안에는 프로그램이 어떻게 흘러가야될지를 정해주는 Servlet, Filter, Listener의 정보가 들어있다.
+그리고 그 ServletContext 안에는 map이 있는데 여기에 객체를 저장할 수 있다. (Application Scope)
+ex) request.getServletContext().setAttribute("")  map에 객체를 설정하는코드
+
+어플리케이션으로 가는 요청을 모아놓은 것을 session이라고 하고
+요청 간에 구분을 해야하기때문에 sessionid가 쿠키로 쓰임
+여기에도 map에 sessionid가 객체로 저장된다. (Session Scope)
+
+
+객체가 오래 존속하는 순서 (Scope = 범위)
+Application Scope(Context) -> Session Scope -> Request Scope -> Page Scope
+
+EL이 이름으로 객체를 찾는 순서
+Application Scope(Context) -> Session Scope -> Request Scope -> Page Scope
+
+주의 : 같은 이름으로 여러 범위에 객체를 저장하는 경우 원하는 객체가 안나올 수 있으므로 주의
+
+
+
