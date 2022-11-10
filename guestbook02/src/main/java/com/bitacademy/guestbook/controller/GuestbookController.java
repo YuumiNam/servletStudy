@@ -30,7 +30,7 @@ public class GuestbookController extends HttpServlet {
 //			request.setAttribute("list", list);
 //			
 //			RequestDispatcher rd = request.getRequestDispatcher("./WEB-INF/views/index.jsp");
-//			rd.forward(request, response);} 
+//			rd.forward(request, response);
 		if("add".equals(action)) {
 			String name = request.getParameter("name");
 			String password = request.getParameter("password");

@@ -13,5 +13,8 @@ select * from guestbook;
 -- guest delete by password
 delete  
 	from guestbook
-    where no = '4'
+    where no = '33'
 		and password = '1234';
+        
+-- delete All
+delete from guestbook;
