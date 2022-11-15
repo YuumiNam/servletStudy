@@ -5,6 +5,7 @@
 
 
 <%
+
 	List<GuestbookVo> list = new GuestbookDao().findAll();
 	int count = 1;
 %>
