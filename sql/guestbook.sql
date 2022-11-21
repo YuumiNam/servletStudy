@@ -18,3 +18,6 @@ delete
         
 -- delete All
 delete from guestbook;
+
+-- null인 no를 쓰고싶을때
+select last_insert_id();
