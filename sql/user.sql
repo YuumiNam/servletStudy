@@ -19,3 +19,9 @@ update user set name = '이선무'
 -- update(이름과 비밀번호)
 update user set name = '이선무', password = '1234'
 	where no = 2 and email = 'dltjsam@gmail.com';
+    
+-- role(권한) 추가하기
+alter table user add column role enum('user', 'admin') default 'user';
+
+-- admin 추가하기
+insert into user values(null, '관리자', 'admin@gmail.com', '1234', 'male', now(), 'admin');
