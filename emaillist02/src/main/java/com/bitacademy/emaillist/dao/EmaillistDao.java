@@ -24,7 +24,7 @@ public class EmaillistDao {
 			
 			
 			//2. 연결하기
-			String url = "jdbc:mysql://127.0.0.1:3306/webdb?charset=utf8";
+			String url = "jdbc:mysql://192.168.0.94:3306/webdb?charset=utf8";
 			conn = DriverManager.getConnection(url, "webdb", "webdb");
 			
 			
@@ -78,7 +78,7 @@ public class EmaillistDao {
 			Class.forName("org.mariadb.jdbc.Driver");
 			
 			//2. 연결하기
-			String url = "jdbc:mysql://127.0.0.1:3306/webdb?charset=utf8";
+			String url = "jdbc:mysql://192.168.0.94:3306/webdb?charset=utf8";
 			conn = DriverManager.getConnection(url, "webdb", "webdb");
 			
 			//3. statement
